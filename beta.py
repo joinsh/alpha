@@ -20,7 +20,7 @@ print "The Last Transday:"+transday
 #判断今日是否为交易日T
 if today == transday:
     #获取T－1日
-    preday = ts.get_hist_data('sh').head(1).index[0]
+    preday = ts.get_hist_data('sh').head(2).index[1]
     print "The Pre Transday:"+preday
 
     hs300 = ts.get_hs300s()
