@@ -16,7 +16,6 @@ print "Today:"+today
 transday = ts.get_realtime_quotes('sh').date[0]
 print "The Last Transday:"+transday
 
-
 #判断今日是否为交易日T
 if today == transday:
     #获取T－1日
