@@ -19,7 +19,6 @@ print "The Latest Transday:"+transday
 today = time.strftime('%Y-%m-%d')
 print "Today:"+today
 code = "399905"
-today = '2016-10-14'
 
 #判断今日是否为交易日T
 if today == transday:
