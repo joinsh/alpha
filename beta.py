@@ -51,7 +51,7 @@ if 1:
             ma20_t1 = hist_data.loc[preday,'ma20']
         
             if ma5_t >= ma10_t and ma5_t1 <= ma10_t1:
-                logger.info(code+"...")  if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
+                logging.info(code+"...")  if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
                 #print code+"..." if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
     print "Checking End..."
             
