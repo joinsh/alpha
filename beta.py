@@ -7,7 +7,15 @@ T日，日终计算ma5上穿ma10的股票
 
 import tushare as ts
 import time
+import logging
 
+
+
+logging.basicConfig(level=logging.DEBUG,
+                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                datefmt='%a, %d %b %Y %H:%M:%S',
+                filename='beta.log',
+                filemode='w')
 
 #获取当前日期
 today = time.strftime('%Y-%m-%d')
@@ -17,7 +25,7 @@ transday = ts.get_realtime_quotes('sh').date[0]
 print "The Last Transday:"+transday
 
 #判断今日是否为交易日T
-if today == transday:
+if 1:
     #获取T－1日
     preday = ts.get_hist_data('sh').head(2).index[1]
     print "The Pre Transday:"+preday
@@ -43,6 +51,7 @@ if today == transday:
             ma20_t1 = hist_data.loc[preday,'ma20']
         
             if ma5_t >= ma10_t and ma5_t1 <= ma10_t1:
-                print code+"..." if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
+                logger.info(code+"...")  if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
+                #print code+"..." if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
     print "Checking End..."
             
