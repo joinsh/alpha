@@ -7,9 +7,15 @@ Created on Thu Oct 5 2016
 
 import tushare as ts
 import time
+import logging
 #import pandas as pd
 #import numpy as np
 
+logging.basicConfig(level=logging.DEBUG,
+                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                datefmt='%a, %d %b %Y %H:%M:%S',
+                filename='beta.log',
+                filemode='w')
 
 #通过获取上证指数实时交易数据，得到最近的实时交易日期
 transday = ts.get_realtime_quotes('sh').date[0]
@@ -51,6 +57,7 @@ if today == transday:
             
             if (ma5_t >= ma10_t and ma5_t1 <= ma10_t1) and xprice > maxclose:
                 print code+"..." if (ma10_t >= ma20_t and ma10_t1 <= ma20_t1) else code
+                logging.info(code) 
                 #print code
                 #if ma10_t >= ma20_t and ma10_t1 <= ma20_t1:
                     #print "........."
