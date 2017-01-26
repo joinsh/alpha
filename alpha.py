@@ -14,8 +14,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG,
                 format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                 datefmt='%a, %d %b %Y %H:%M:%S',
-                filename='alpha.log',
-                filemode='w')
+                filename='alpha.log')
 
 #通过获取上证指数实时交易数据，得到最近的实时交易日期
 transday = ts.get_realtime_quotes('sh').date[0]
