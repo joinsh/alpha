@@ -21,7 +21,8 @@ transday = ts.get_realtime_quotes('sh').date[0]
 print "The Latest Transday:"+transday
 #获取当前日期
 today = time.strftime('%Y-%m-%d')
-print "Today:"+today
+now = time.strftime('%Y-%m-%d %H:%M:%S')
+print "Time:"+now
 
 #判断今日是否为交易日T
 if today == transday:
